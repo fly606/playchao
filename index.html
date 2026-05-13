@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#050013" />
+  <title>Wash Away the Grey World | Superb Chaoneng</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" aria-label="Wash Away the Grey World interactive campaign">
+    <div id="stage" class="stage">
+      <canvas id="particle-canvas" aria-hidden="true"></canvas>
+      <div class="noise" aria-hidden="true"></div>
+      <div class="hud">
+        <div class="brand">超能 Superb</div>
+        <div class="chapter"><span id="chapterNo">01</span><i></i><span id="chapterName">Grey City</span></div>
+      </div>
+
+      <section class="scene active opening" data-scene="0" data-name="Grey City">
+        <div class="parallax moon" data-depth="-0.18"></div>
+        <div class="parallax city city-back" data-depth="0.08"></div>
+        <div class="parallax city city-front" data-depth="0.16"></div>
+        <div class="giant-shirt parallax" data-depth="0.28">
+          <div class="collar"></div><div class="sleeve left"></div><div class="sleeve right"></div>
+        </div>
+        <article class="copy block bottom">
+          <p class="eyebrow">A cinematic H5 fable</p>
+          <h1>Wash Away<br />the Grey World</h1>
+          <p>The city has been covered by a tired giant shirt. Tap to wake the botanical fragrance hidden in every fiber.</p>
+          <button class="primary" data-next>Tap to Begin</button>
+        </article>
+      </section>
+
+      <section class="scene fibers" data-scene="1" data-name="Fiber World">
+        <div class="fiber-tunnel parallax" data-depth="0.2"></div>
+        <div class="floating-pods parallax" data-depth="0.35">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <article class="copy block top">
+          <p class="eyebrow">Scene 02 · Enter the weave</p>
+          <h2>Inside the Clothing Fiber World</h2>
+          <p>Swipe upward through a microscopic forest where grey worries cling like dust planets.</p>
+          <div class="gesture-hint">Swipe up to dive deeper</div>
+        </article>
+      </section>
+
+      <section class="scene twist" data-scene="2" data-name="Twist Sky">
+        <div class="sky-disc" id="skyDisc">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="giant-hand left-hand"></div>
+        <div class="giant-hand right-hand"></div>
+        <article class="copy block bottom glass">
+          <p class="eyebrow">Mini-game · multi-touch rotate</p>
+          <h2>Twist the Sky</h2>
+          <p>Rotate the dream sky with two fingers or drag in a circle until color spills through.</p>
+          <div class="progress"><b id="twistProgress"></b></div>
+        </article>
+      </section>
+
+      <section class="scene scratch" data-scene="3" data-name="Scratch Worries">
+        <div class="poster-under">
+          <div class="sunburst"></div>
+          <h2>Worries Fade.<br />Fragrance Blooms.</h2>
+          <p>Chaoneng botanical fragrance breaks through the grey film.</p>
+        </div>
+        <canvas id="scratchCanvas" class="scratch-canvas" aria-label="Scratch away worries"></canvas>
+        <article class="copy block top compact">
+          <p class="eyebrow">Scene 04 · scratch</p>
+          <h2>Scratch Away Worries</h2>
+          <p>Rub the fogged surface to reveal a saturated new mood.</p>
+        </article>
+      </section>
+
+      <section class="scene maze" data-scene="4" data-name="Wardrobe Maze">
+        <div class="maze-world" id="mazeWorld">
+          <div class="door d1"></div><div class="door d2"></div><div class="door d3"></div><div class="door d4"></div>
+          <div class="avatar" id="avatar"></div>
+          <div class="exit">香</div>
+        </div>
+        <article class="copy block bottom glass">
+          <p class="eyebrow">Scene 05 · giant wardrobe maze</p>
+          <h2>Find the Fragrance Door</h2>
+          <p>Swipe left or right to move through towering wardrobe doors.</p>
+          <div class="progress"><b id="mazeProgress"></b></div>
+        </article>
+      </section>
+
+      <section class="scene shake" data-scene="5" data-name="Release Fragrance">
+        <div class="bottle-orbit">
+          <div class="botanical-bottle"></div>
+          <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span><span class="leaf l4"></span>
+        </div>
+        <article class="copy block bottom">
+          <p class="eyebrow">Scene 06 · shake</p>
+          <h2>Shake to Release Fragrance</h2>
+          <p>Shake your phone, or long-press the bottle, to awaken a botanical storm.</p>
+          <button class="primary ghost" id="shakeFallback">Long Press / Hold</button>
+        </article>
+      </section>
+
+      <section class="scene vortex" data-scene="6" data-name="Washing Vortex">
+        <div class="machine">
+          <div class="machine-top"></div>
+          <div class="vortex-ring"><div class="water"></div></div>
+        </div>
+        <article class="copy block top glass">
+          <p class="eyebrow">Scene 07 · giant washing machine</p>
+          <h2>Enter the Clean Vortex</h2>
+          <p>Tap the glowing drum and let the grey world spiral away.</p>
+          <button class="primary" data-next>Start Spin</button>
+        </article>
+      </section>
+
+      <section class="scene product" data-scene="7" data-name="Product Reveal">
+        <div class="product-hero">
+          <div class="halo"></div>
+          <div class="packshot">
+            <div class="cap"></div>
+            <div class="label">超能<br /><small>植翠低泡洗衣液</small></div>
+          </div>
+        </div>
+        <article class="copy block bottom">
+          <p class="eyebrow">Scene 08 · unexpected reveal</p>
+          <h2>Superb Botanical Fragrance</h2>
+          <p>Luxury freshness, gentle plant-inspired aroma, and a clean world reborn in color.</p>
+          <button class="primary" data-next>Reveal Features</button>
+        </article>
+      </section>
+
+      <section class="scene cards" data-scene="8" data-name="Feature Cards">
+        <article class="copy block top compact">
+          <p class="eyebrow">Scene 09 · flip cards</p>
+          <h2>Tap each card</h2>
+        </article>
+        <div class="card-grid" id="cardGrid">
+          <button class="feature-card"><span>Plant Aroma</span><b>Botanical fragrance unfolds like a private garden.</b></button>
+          <button class="feature-card"><span>Deep Clean</span><b>Grey dust and stale mood are washed away.</b></button>
+          <button class="feature-card"><span>Soft Care</span><b>Fibers feel fresh, light, and beautifully alive.</b></button>
+          <button class="feature-card"><span>Low Foam</span><b>Rinses cleanly for a modern premium wash.</b></button>
+        </div>
+      </section>
+
+      <section class="scene result" data-scene="9" data-name="Result Poster">
+        <div class="poster-card" id="posterCard">
+          <div class="poster-title">Your Clean Aura</div>
+          <div class="aura">Botanical Dreamer</div>
+          <div class="poster-pack"></div>
+          <p>You turn grey streets into saturated gardens. Your fragrance note is surreal green tea, white blossom, and rain-lit cotton.</p>
+          <div class="qr">H5</div>
+        </div>
+        <article class="copy block bottom compact">
+          <p class="eyebrow">Scene 10 · personality result</p>
+          <h2>Save the poster in your heart</h2>
+          <button class="primary" id="restart">Replay Story</button>
+        </article>
+      </section>
+
+      <div class="progress-dots" id="dots" aria-hidden="true"></div>
+      <button class="sound-toggle" id="soundToggle" aria-label="Toggle ambient audio">♫</button>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
