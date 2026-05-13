@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#070713" />
+  <title>洗掉世界的灰｜超能植愈香氛 H5</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" aria-label="洗掉世界的灰 H5互动游戏">
+    <div id="stage" class="stage">
+      <canvas id="fxCanvas" aria-hidden="true"></canvas>
+      <canvas id="scratchCanvas" class="scratch-layer" aria-label="擦掉烦恼"></canvas>
+      <div class="film-grain" aria-hidden="true"></div>
+      <header class="hud">
+        <div class="campaign-title">洗掉世界的灰</div>
+        <div class="chapter"><span id="chapterNo">01</span><i></i><span id="chapterName">灰色世界入口</span></div>
+      </header>
+
+      <section class="scene scene-1 active" data-name="灰色世界入口" data-tone="#b8c8d9">
+        <div class="fog fog-a parallax" data-depth="0.09"></div>
+        <div class="fog fog-b parallax" data-depth="0.16"></div>
+        <div class="grey-city parallax" data-depth="0.18"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="sky-shirt parallax" data-depth="0.3">
+          <span class="collar"></span><span class="shirt-fold f1"></span><span class="shirt-fold f2"></span>
+          <button class="shirt-corner hotspot" id="shirtCorner" aria-label="触摸衣角"></button>
+        </div>
+        <div class="lonely-petal" aria-hidden="true"></div>
+        <article class="story center">
+          <p class="kicker">01 / OPENING</p>
+          <h1>世界，好像很久没被洗过了。</h1>
+          <p class="hint">触摸衣角</p>
+        </article>
+      </section>
+
+      <section class="scene scene-2" data-name="坠入纤维峡谷" data-tone="#8dff9e">
+        <div class="fiber-canyon parallax" data-depth="0.28"></div>
+        <div class="cloth-clouds parallax" data-depth="0.12"><span></span><span></span><span></span></div>
+        <button class="bloom b1 flower" aria-label="触碰荧光花朵"></button>
+        <button class="bloom b2 flower" aria-label="触碰荧光花朵"></button>
+        <button class="bloom b3 flower" aria-label="触碰荧光花朵"></button>
+        <article class="story top glass">
+          <p class="kicker">02 / FIBER CANYON</p>
+          <h2>每一根纤维，都藏着一座花园。</h2>
+          <p>左右滑动穿过白色峡谷，触碰花朵释放香气粒子。</p>
+          <p class="hint">左右滑动 / 点亮 3 朵花</p>
+        </article>
+        <div class="mini-progress"><b id="fiberProgress"></b></div>
+      </section>
+
+      <section class="scene scene-3" data-name="拧干天空" data-tone="#ffda55">
+        <div class="cracked-earth"></div>
+        <div class="dry-cloud" id="twistTarget"><span></span><span></span><span></span></div>
+        <div class="gold-rain" aria-hidden="true"></div>
+        <article class="story bottom glass">
+          <p class="kicker">03 / TWIST SKY</p>
+          <h2>用双指拧干天空</h2>
+          <p>乌云会像湿毛巾一样被拧动，金色液体落下后，土地会疯狂开花。</p>
+          <p class="hint">双指旋转 / 单指绕圈也可体验</p>
+          <div class="mini-progress"><b id="twistProgress"></b></div>
+        </article>
+      </section>
+
+      <section class="scene scene-4" data-name="洗掉烦恼" data-tone="#ff6bc8">
+        <div class="flower-forest">
+          <span></span><span></span><span></span><span></span><span></span>
+          <div class="clean-copy">洗净的，不只是衣服。</div>
+        </div>
+        <div class="worry-labels" aria-hidden="true"><b>焦虑</b><b>内耗</b><b>加班</b><b>失眠</b><b>疲惫</b></div>
+        <article class="story top compact">
+          <p class="kicker">04 / SCRATCH</p>
+          <h2>擦掉它们</h2>
+          <p>像擦镜面水雾一样滑动，露出背后鲜艳的巨大花海。</p>
+        </article>
+      </section>
+
+      <section class="scene scene-5" data-name="巨型衣柜迷宫" data-tone="#d8a2ff">
+        <div class="wardrobe-depth parallax" data-depth="0.18"></div>
+        <div class="garment-forest" id="garmentForest">
+          <button class="garment g1" data-note="白鸢尾"><span>白鸢尾</span></button>
+          <button class="garment g2" data-note="玫瑰"><span>玫瑰</span></button>
+          <button class="garment g3" data-note="白兰"><span>白兰</span></button>
+          <button class="garment g4" data-note="晚香玉"><span>晚香玉</span></button>
+          <button class="garment g5" data-note="木檀"><span>木檀</span></button>
+        </div>
+        <article class="story bottom glass">
+          <p class="kicker">05 / WARDROBE MAZE</p>
+          <h2>每件衣服，都藏着一种生活气味。</h2>
+          <p>点击任意巨型衣摆，像帷幕一样打开，进入下一段香气风暴。</p>
+        </article>
+      </section>
+
+      <section class="scene scene-6" data-name="摇醒香气" data-tone="#77ffbb">
+        <div class="void-stars" aria-hidden="true"></div>
+        <div class="floating-coat" id="coat">
+          <span class="vine v1"></span><span class="vine v2"></span><span class="vine v3"></span>
+          <button class="coat-button hotspot" id="coatButton" aria-label="长按摇醒香气"></button>
+        </div>
+        <article class="story bottom">
+          <p class="kicker">06 / WAKE FRAGRANCE</p>
+          <h2>试着摇醒它</h2>
+          <p>摇晃手机，或长按外套，让沉睡的花纹蔓延成真实花藤。</p>
+          <p class="hint">摇一摇 / 长按外套</p>
+        </article>
+      </section>
+
+      <section class="scene scene-7" data-name="巨型洗衣机之门" data-tone="#5cd7ff">
+        <div class="temple-machine">
+          <div class="engrave">BOTANICAL POWER · PLANT RITUAL</div>
+          <div class="machine-door" id="machineDoor"><span></span></div>
+        </div>
+        <div class="memory-orbit"><i></i><i></i><i></i><i></i></div>
+        <article class="story top glass">
+          <p class="kicker">07 / TIME VORTEX</p>
+          <h2>长按启动</h2>
+          <p>灰色城市、纤维、花朵、衣柜都被吸向圆形舱门，像进入异世界机械神殿。</p>
+          <button class="primary hold" id="machineHold">长按启动</button>
+          <p class="reveal-line">原来，你一直在洗整个世界。</p>
+        </article>
+      </section>
+
+      <section class="scene scene-8" data-name="真相揭晓" data-tone="#fff0a6">
+        <div class="liquid-universe">
+          <div class="mega-drop"><span class="tiny-city"></span><span class="tiny-garden"></span><span class="tiny-wardrobe"></span></div>
+        </div>
+        <div class="product-altar">
+          <div class="logo">超能</div>
+          <div class="product-pack"><span class="pack-cap"></span><span class="pack-label">植愈香氛<br><small>洗衣液 5</small></span></div>
+          <div class="botanical-ring"><i>白鸢尾</i><i>木檀</i><i>金色液滴</i><i>香雾</i></div>
+        </div>
+        <article class="story bottom glass">
+          <p class="kicker">08 / PRODUCT REVEAL</p>
+          <h2>洗掉灰暗，留下会开花的生活。</h2>
+          <p>一滴液体里，藏着整场奇幻旅程。品牌与产品在此刻才真正揭晓。</p>
+          <button class="primary" data-next>解锁香氛卖点</button>
+        </article>
+      </section>
+
+      <section class="scene scene-9" data-name="卖点解锁游戏页" data-tone="#ffd66f">
+        <div class="perfume-bg"></div>
+        <article class="story top compact">
+          <p class="kicker">09 / FEATURE CARDS</p>
+          <h2>点击卡牌，逐一翻开香气答案。</h2>
+        </article>
+        <div class="cards" id="cards">
+          <button class="feature-card"><span>花朵 + 精油滴</span><b>10种天然植物精油</b></button>
+          <button class="feature-card"><span>巴黎花园剪影</span><b>法国调香大师定制香氛</b></button>
+          <button class="feature-card"><span>旋转香气胶囊</span><b>720小时持久留香</b></button>
+          <button class="feature-card"><span>摩擦衣物花朵爆开</span><b>摩擦生香专利技术</b></button>
+        </div>
+      </section>
+
+      <section class="scene scene-10" data-name="结局分享页" data-tone="#baffdc">
+        <div class="poster-garden"><span></span><span></span><span></span></div>
+        <div class="result-poster" id="poster">
+          <p class="poster-kicker">你的衣服开出了：</p>
+          <h2>白鸢木檀<br>花园人格</h2>
+          <p>你追求洁净，却更在意生活中的仪式感。你相信香气不是装饰，而是陪伴。你适合让日常，也拥有花开的时刻。</p>
+          <div class="recommend"><strong>推荐产品</strong><br>超能植愈香氛洗衣凝珠<br>超能植愈香氛洗衣液</div>
+          <div class="poster-bottle"></div>
+        </div>
+        <div class="poster-actions">
+          <button class="primary" id="savePoster">保存结果海报</button>
+          <button class="secondary" id="restart">再玩一次</button>
+          <button class="secondary" id="shareFriend">分享好友</button>
+        </div>
+      </section>
+
+      <nav class="dots" id="dots" aria-hidden="true"></nav>
+      <button class="sound" id="soundToggle" aria-label="开关环境音">♫</button>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
